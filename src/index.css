@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+@layer components {
+    .max-container {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+}
+
+@layer utilities {
+    .padding {
+        @apply px-8 py-12;
+    }
+    @media (min-width: 640px) {
+        .padding {
+            @apply px-16 py-24;
+        }
+    }
+    .padding-x {
+        @apply px-8;
+    }
+    @media (min-width: 640px) {
+        .padding-x {
+            @apply px-16;
+        }
+    }
+    .padding-y {
+        @apply py-12;
+    }
+    @media (min-width: 640px) {
+        .padding-y {
+            @apply py-24;
+        }
+    }
+    .padding-l {
+        @apply pl-8;
+    }
+    @media (min-width: 640px) {
+        .padding-l {
+            @apply pl-16;
+        }
+    }
+    .padding-r {
+        @apply pr-8;
+    }
+    @media (min-width: 640px) {
+        .padding-r {
+            @apply pr-16;
+        }
+    }
+    .padding-t {
+        @apply pt-12;
+    }
+    @media (min-width: 640px) {
+        .padding-t {
+            @apply pt-24;
+        }
+    }
+    .padding-b {
+        @apply pb-12;
+    }
+    @media (min-width: 640px) {
+        .padding-b {
+            @apply pb-24;
+        }
+    }
+    .info-text {
+        @apply font-montserrat text-slate-gray text-lg leading-7;
+    }
+}
+
+
+/* features */
+
+
+/* Tailwind Styles for the 3D Rotating Carousel */
+
+.perspective-container {
+    perspective: 1000px;
+}
+
+.rotating-gallery {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    transform-style: preserve-3d;
+    animation: rotateGallery 20s linear infinite;
+}
+
+@keyframes rotateGallery {
+    0% {
+        transform: perspective(1000px) rotateX(-14deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateX(-14deg) rotateY(360deg);
+    }
+}
+
+.feature-card {
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(550px);
+    transition: transform 1s ease;
+}
+
+.feature-card:hover {
+    transform: scale(1.05) translateZ(600px);
+}
+
+.feature-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.feature-card-front,
+.feature-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+}
+
+.feature-card-front {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card-back {
+    background-color: #f5f5f5;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.feature-card-front h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.feature-card-front p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.feature-card-back p {
+    font-size: 1rem;
+    color: #4a5568;
+    text-align: center;
+}
+
+
+/* carosol */

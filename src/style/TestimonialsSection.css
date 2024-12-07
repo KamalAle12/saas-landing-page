@@ -1,0 +1,86 @@
+.testimonials-container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+.testimonials-container h2{ 
+  font-family: 'ICA Rubrik';
+  font-size: 6rem;
+  line-height: 1em;
+  color: #25283B;
+  position: relative;
+  margin-top: 50px;
+}
+
+.testimonials-container h2::after{
+  position: absolute;
+  inset: 0 0 0 0;
+  content: attr(data-content);
+  z-index: 2;
+  -webkit-text-stroke: 2px #d2d2d2;
+  color: transparent;
+}
+
+.particle-box{
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 50px;
+}
+
+.particles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.particle{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb );
+  animation: move 4s linear infinite;
+}
+.particle:nth-child(odd){
+  background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+}
+
+.testimonials-background{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.testimonials-background img{
+  max-width: 62%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes move{
+  0%{
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  50%{
+    transform: translate(50px, -50px);
+    opacity: 0.5;
+  }
+  100%{
+    transform: translate(-50px, 50px);
+    opacity: 0;
+  }
+}
